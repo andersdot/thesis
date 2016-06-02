@@ -1,0 +1,152 @@
+
+\documentclass[11pt, titlepage, twoside]{article}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\geometry{a4paper}
+\geometry{portrait}
+\usepackage[utf8]{inputenc}	% Comment out for xelatex; must use with pdflatex
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{fontspec}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage[hang]{footmisc}
+\usepackage{endnotes}
+\usepackage{listingsutf8}
+%\restylefloat{table}
+\usepackage{xcolor}
+\usepackage{colortbl}
+%\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{caption}
+\usepackage{textcomp}
+\usepackage{subcaption}\usepackage[style=numeric,backend=bibtex8]{biblatex}
+\addbibresource{references.bib}
+\captionsetup[figure]{labelfont=sc}
+\captionsetup[table]{labelfont=sc}
+\captionsetup[tabu]{labelfont=sc}
+
+\DeclareCaptionType{MPEquation}[][List of equations]
+\captionsetup[MPEquation]{labelformat=empty}
+
+\DeclareCaptionType{MPListing}[][List of listings]
+\captionsetup[MPListing]{labelformat=empty}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{16pt}
+\pagestyle{fancyplain}
+\fancyhf{}
+%\fancypagestyle{plain}{}
+\cfoot[\thepage]{\thepage}
+
+\usepackage{stringenc}
+\usepackage{pdfescape}
+
+
+% Helper for debugging pdflatex errors induced by invalid UTF8 characters:
+% output the actual character code causing the issue.
+
+\makeatletter
+\renewcommand*{\UTFviii@defined}[1]{%
+\ifx#1\relax
+\begingroup
+% Remove prefix "\u8:"
+\def\x##1:{}%
+% Extract Unicode char from command name
+% (utf8.def does not support surrogates)
+\edef\x{\expandafter\x\string#1}%
+\StringEncodingConvert\x\x{utf8}{utf16be}% convert to UTF-16BE
+% Hexadecimal representation
+\EdefEscapeHex\x\x
+% Enhanced error message
+\PackageError{inputenc}{Unicode\space char\space \string#1\space
+(U+\x)\MessageBreak
+not\space set\space up\space
+for\space use\space with\space LaTeX}\@eha
+\endgroup
+\else\expandafter
+#1%
+\fi
+}
+\makeatother
+
+% Make multi-paragraph footnotes align nicely on the left
+\setlength\footnotemargin{10pt}
+
+% Do not display an automatic Notes heading for endnotes, as they are contained
+% by a Manuscripts section with a heading that has possibly been edited by the user
+\def\enoteheading{}
+
+% Apply footnote and endnote numbering schemes (decimal, lowercase roman etc.)
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\renewcommand{\theendnote}{\arabic{endnote}}
+% Adjust endnotes to use normal-sized numbering and text
+\renewcommand{\enotesize}{\normalsize}
+\renewcommand\enoteformat{%
+  \raggedright
+  \leftskip=1.8em
+  \makebox[0pt][r]{\theenmark. \rule{0pt}{\dimexpr\ht\strutbox+\baselineskip}}%
+}
+
+\begin{document}
+\title{Untitled Manuscript}\author{}
+\maketitle
+
+\section{Conclusion}\label{MPSection:BA563B11-83D8-49CA-A74D-5F88E013894E}
+
+
+\subsection{Summary of Contributions}\label{MPSection:C2297B6A-A829-43D1-831C-0B7D74417154}
+
+My dissertation research significantly contributes to the study of star clusters, stellar populations, and star formation. Here, I summarize my work and outline my contributions to the field of astrophysics.
+
+In Chapter 3 , I described the effort to construct a high quality sample of 2753 star clusters using imaging from the Panchromatic Hubble Andromeda Treasury survey . The catalog was assembled using 1.8 million image classifications contributed by thousands of volunteers as part of the Andromeda Project citizen science project. This effort built upon an initial, traditional visual search conducted by a group of professional astronomers presented in Chapter 2 , and provided the efficiency necessary to systematically search $\sim$ 0.5 deg$^2$ (totaling $\sim$ 7 gigapixels) of imaging data.
+
+The PHAT cluster catalog is a well-characterized census of Andromeda's star cluster population, providing one of the best galaxy-wide samples to date. This catalog increases the number of known clusters in the PHAT survey footprint by a factor of 6 with respect to previous catalogs in the literature, which shows the value of high spatial resolution imaging from PHAT. The PHAT cluster sample extends to low mass clusters ($\lesssim$ 10$^3$ ) at young ages ($\lesssim$ 300 Myr) that go undetected in more distant galaxies ($>$ 1 Mpc). We conducted a thorough determination of catalog completeness, computing how detection varies as a function cluster properties (e.g., age, mass, and size) and galaxy properties (e.g., background stellar density and spatial distribution). Furthermore, each star cluster is resolved into individual stellar members, allowing detailed analysis of individual clusters through color-magnitude diagram (CMD) fitting, providing a richness of data that is only possible within the Local Group.
+
+These catalogs provide a basic characterization of the M31 star cluster population, including sample-wide six-band integrated photometry, luminosity functions, and photometrically-determined sizes. These basic properties serve as input for additional characterization work, including age and mass determinations .
+
+A number of valuable investigations build out of the initial cluster discovery and characterization analysis. The first of these was an exploration of the cluster formation efficiency in Chapter 4: the fraction of young stars formed as members of long-lived star clusters ($\Gamma$ ). We find that 3-6\% of young stars (10-100 Myr old) are born as cluster members, where this fraction varies systematically across the M31 disk according to star formation rate intensity (measured using star formation rate surface density, ) and gas depletion time (). These M31 measurements agree with the established trend of rising cluster formation efficiency with increasing star formation rate intensity, in which $\Gamma$ increases from $\sim$ 1\% in regions with low to $\sim$ 50\% in intense starburst environments. While this result adds to a growing collection of $\Gamma$ studies in the literature , the spatially resolved nature of the M31 analysis improves upon galaxy-integrated determinations, providing important leverage for physical interpretation of environmentally dependent cluster formation behavior.
+
+We also compare our $\Gamma$ measurements to theoretical predictions from . We build on this initial work by deriving a new set of $\Gamma$ relations as a function of and gas depletion time (), derived under a new set of assumptions concerning the underlying star formation law ( as a function of ) that are well-suited for use with spatially-resolved observations. Not only do these new relations help to understand $\Gamma$ measurements in M31, but also help in proposing new tests of feedback prescriptions in starburst environments. Overall, we demonstrate good agreement between theoretical predictions and observations, providing further support for the underlying model of cluster formation in which clusters emerge from regions with high local star formation efficiency that occur in high density regions of a hierarchically-structured interstellar medium.
+
+In addition to examining the dependence of cluster formation efficiency on galactic environment, we use the M31 cluster sample to investigate the star cluster mass function in Chapter 5. We find that the mass function constructed for 840 young (10-300 Myr old) star clusters in the PHAT sample is truncated at its high mass end, and can be described using a Schechter function with a characteristic mass of $M_c = 8.5^{+2.8}_{-1.8} \times 10^3$. When combined with other reported cluster mass function truncations, we show for the first time that the location of the exponential cutoff depends on star formation rate surface density, where $M_c \propto$$^{\sim1.3}$. Additionally, we explore whether observed variations in the high-mass end of the globular cluster mass function could be connected to the $M_c$ - relation dependence we derive for young cluster systems, and present evidence supporting the hypothesis that cluster formation processes behave the same in the early universe as they do in the present day.
+
+
+\subsection{Related Studies}\label{MPSection:552D75A9-2935-4230-B8AF-A90F2A394CDF}
+
+Beyond investigations of cluster formation efficiency and the cluster mass function in M31, the PHAT star cluster sample serves as the basis for other investigations of Andromeda's stellar populations. First, PHAT observations of M31 star clusters facilitate a systematic study of the high-mass stellar initial mass function (IMF). In their recent review of the literature, concludes that that there is no clear evidence for significant variations in the IMF, however the current set of observational IMF constraints still allow for the possibility of systematic variations. A majority of current IMF studies are performed in single star clusters, one cluster at a time, leading to a large amount of heterogeneity in authors, analysis techniques, and data quality among the current set of published results. Concerns about systematic errors and underestimated uncertainties severely limit the community's ability to interpret underlying IMF behavior.
+
+Using observations of 85 young ($>$ 25 Myr) PHAT clusters, systematically analyze the stellar IMF using a uniform data set, homogeneous data processing and preparation methods, and probabilistic fitting techniques. This consistent, robust analysis of a high quality data set provides the largest systematic study of the high-mass stellar IMF to date. Finding no evidence of systematic variations, this study concludes that the high-mass IMF appears universal and can be characterized by a power law slope of $-1.45^{+0.03}_{-0.06}$, which is slightly steeper than the canonical Kroupa ($-1.30$ ) or Salpeter ($-1.35$ ) power law indices.
+
+In a different application of the PHAT cluster catalog, combines age constraints for PHAT clusters with Cepheid catalogs published by to study the period-age relation for Cepheid variable stars. The availability of a large sample of clusters is essential for a study of intrinsically rare objects. This study identifies 10 candidate Cepheid cluster members, significantly adding to 23 known Galactic candidates , and contributes additional age constraints in support of future observational comparisons to theoretical pulsation and stellar evolution models.
+
+These studies demonstrate that star clusters are valuable, multi-faceted astrophysical laboratories. The construction of a large, well-characterized sample of clusters from the PHAT survey allows countless new and exciting avenues of research. Examples of future applications include studies that use age-tagged cluster members to improve late stage stellar evolution models of asymptotic giant branch stars (L. Girardi et al., in preparation) and red\slash blue supergiants (L.C. Johnson et al., in preparation). However, the fact that all PHAT data is publicly available\footnote{}permits, and encourages, a multitude of future applications.
+
+
+\subsection{Future Directions}\label{MPSection:D1739483-E882-4D4F-BC10-2E166DB67D80}
+
+The science results from my dissertation lead to an array of future directions. Additional high-quality, spatially-resolved measurements of cluster formation efficiency would allow us to explore new, higher intensity star forming environments and improve our understanding of the environmental dependencies of cluster formation. The Magellanic Clouds and M33 represent auspicious targets for extending the range of star formation rate intensity upward by nearly an order of magnitude, while still providing the ability to perform detailed analyses using individually resolved cluster member stars. Future HST programs and wide-area ground-based surveys (e.g., the Survey of the Magellanic Stellar History, SMASH; D. Nidever, in preparation) provide amazing opportunities for future observational studies of cluster formation.
+
+The topic of cluster formation is also ripe for theoretical advancement. As discussed in Chapter 4, constructing a comprehensive framework for cluster formation that not only predicts the fraction of mass formed in long-lived star clusters, but also describes the mass function of the systems that are produced is now within reach . These theoretical models are essential for understanding and interpreting observational differences revealed by the next generation of cluster and star formation studies.
+
+Looking beyond the realm of studies that focus solely on star formation products (young cluster and field star populations), there is great potential in research that studies the link between properties of giant molecular clouds and the star forming ISM to the stellar populations they produce. While short timescales and the embedded nature of young stellar populations tend to complicate studies of early phases of star formation, vast improvements of southern hemisphere observatories (in the form of the DECam optical imager on the 4-m Blanco telescope at CTIO, and the ALMA sub-millimeter observatory) will enable detailed, revolutionary studies of star formation in the Magellanic Clouds.
+
+Finally, the hypothesis that globular cluster mass function truncations could yield insights about the star formation environments of galaxy hosts in the early universe is extremely exciting. There are many avenues for future study in this line of research. For instance, can we find corroborating evidence that supports the notion of a universal correlation between star cluster mass functions and ? How does the globular cluster mass function truncation differ for metal-rich and metal-poor subsamples of globular clusters? What do these differences (or similarities) tell us about the origin and relative differences among globular clusters subpopulations? How do the characteristic star formation rate intensities predicted by the young cluster relation with compare to values inferred from the latest theoretical galaxy formation models? This open-ended topic suggest many avenues of future theoretical and observation study, and while still rather speculative, perhaps holds the greatest potential for wide-scale impact across a broad range of astronomical research.
+
+
+\subsection{Closing}\label{MPSection:10641D4E-E045-4C82-A46D-190C712CE937}
+
+My dissertation makes a significant contribution to the understanding of Andromeda's star cluster population and cluster formation on the whole. As is the case for most scientific investigations, the work I have begun here is by no-means complete. For every question I was able to answer throughout the course of my research, a new intriguing puzzle rose to take its place. However, I take pride in participating in the scientific endeavor, and I hope that I never run out of cosmic questions to answer.
+
+\begin{enumerate}
+\item 
+
+\end{enumerate}
+
+
+\section{}\label{MPSection:B475A148-E3FB-41BC-8F55-109CABB2369B}
+
+
+\end{document}

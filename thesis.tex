@@ -1,0 +1,267 @@
+\documentclass[11pt,twoside]{uwthesis}
+
+% SET THIS TO TRUE TO AUTOMATICALLY COMPILE THE FINAL THESIS
+\newif\iffinal
+\finaltrue
+
+% other if statements
+\newif\ifhyper
+\hyperfalse
+
+\newif\iflinenum
+\linenumfalse
+
+\newif\ifimage
+\imagetrue
+
+\newif\ifnotmarginhook
+\notmarginhooktrue
+
+% do not touch!
+\newif\ifthesis
+\thesistrue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document setup
+
+% see ALL subsubsections for checking.
+% gets changed back to 1 if iffinal is true.
+\setcounter{tocdepth}{1}
+
+% math commands
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epsfig}
+
+% use natbib and put the bibliography in the ToC
+\usepackage{natbib}
+%\usepackage{url}
+\def\bibpreamble{\protect\addcontentsline{toc}{chapter}{Bibliography}}
+
+% landscape pages
+%\usepackage{lscape}
+
+%foreign characters
+%\usepackage[applemac]{inputenc} 
+
+% make sure that floats know their place aka floatbarrier - Aomawa commented this out for the following command
+%\usepackage{placeins}
+%Aomawa adjusting this to put floats in their sections only
+%\usepackage[section]{placeins}
+
+% allows you to put tables on the top of the next page ie:
+% \afterpage{\input{tablefile.tex}}
+%\usepackage{afterpage}
+%\usepackage{lipsum}
+
+% journal abbreviations
+\usepackage{aas_macros}
+
+% tablenotemark, nodata... could probably use dots instead of nodata
+\usepackage{deluxetable}
+
+% long multipage tables
+\usepackage{longtable}
+\usepackage{ltcaption}
+% normal font size for captions in small/scriptsize tables
+\renewcommand\CaptionLabelFont{\normalsize}
+\renewcommand\CaptionTextFont{\normalsize}
+% reasonable widths for captions. not perfect but it will work. at least they're not scrunched up
+\LTcapwidth=\textwidth
+% add more white space at the bottom of tables if there will be text on the page.
+\setlength{\LTpost}{60pt}
+
+% sidewaystable
+%\usepackage[figuresright]{rotating}
+
+% my own commands
+% \usepackage{amsdefs}
+% \usepackage{srldefs}
+
+% for 1a, 1b figure numbering in some figures.
+% if I'd read the uwthesis documentation carefully I would have realized that this behavior is already implemented in the caption package. Oh well.
+% the uwthesis caption behavior does not appear to work.. may be because I
+% am usepackaging ltcaption.
+%\newcounter{subfig}
+
+% for subfigures within a single figure.
+% subfigure is deprecated but whatever. it loads.
+%\usepackage{subcaption}
+%\usepackage{subfigure}
+
+% show subsubsubsections in refs.
+\setcounter{secnumdepth}{3}
+%\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+
+% need more space between fignum and caption due to having 1a, 1b etc.
+%\makeatletter
+%\renewcommand*\l@figure{\setlength\@tempdima{3em}%
+%    \@dottedtocline{1}{1.5em}{\@tempdima}}
+%\makeatother
+
+% easily able to say "Reproduced from" but I wonder if I should
+% just do it by hand.
+%\newcommand{\reprfrom}[1]{\emph{Reproduced from \citet{#1}.}}
+
+% new command for easy figure/table paths - this is renewed in chapters.
+%\newcommand{\figurepath}{.}
+%\newcommand{\tablepath}{.}
+
+% tweak citation puncuation
+\bibpunct{(}{)}{;}{a}{}{,}
+
+% citation aliases
+ \defcitealias{Introduction}{Chapter~1}
+ \defcitealias{HzUVLF}{Chapter~2}
+ \defcitealias{fesc}{Chapter~3}
+ \defcitealias{shapeLF}{Chapter~4}
+ \defcitealias{Conclusion}{Chapter~5}
+
+
+% preamble items
+\def\persqpc{$\mathrm{pc}^{-2}$}
+\def\error{$\pm$}
+\def\solmass{$M_{\odot}$}
+\def\solum{$L_{\odot}$}
+\newcommand{\re}{$r_{\mathrm{eff}}$}
+\newcommand{\halpha}{H$\alpha$}
+\newcommand{\hii}{H{\sc II}}
+\newcommand{\hi}{H{\sc I}}
+%\newcommand{\SigHI}{$\Sigma_{\mathrm{HI}}$}
+%\newcommand{\SigHtoo}{$\Sigma_{\mathrm{H2}}$}
+\newcommand{\um}{$\mu$m}
+
+\def\solmassyr{$M_{\odot}$ yr$^{-1}$}
+\def\reff{$R_{\rm eff}$}
+\def\ClusterFrac{$f_{\rm cluster}$}
+\def\ClusterFracW{$f_{\rm cluster, W}$}
+\def\GalFrac{$f_{\rm galaxy}$}
+\def\ViewFrac{$f_{\rm clst+gal}$}
+\def\AvgClstFrac{$\bar{f}_{\rm cluster}$}
+\def\GoodFrac{$f_{\rm consensus}$}
+
+\def\solperyr{$M_{\odot}$ yr$^{-1}$}
+\def\solperpc{$M_{\odot}$ pc$^{-2}$}
+%\newcommand{\re}{$r_e$}
+\newcommand{\HII}{H{\sc ii}}
+\newcommand{\HI}{H{\sc i}}
+\newcommand{\Htwo}{H$_2$}
+\newcommand{\SigHI}{$\Sigma_{\mathrm{H\textsc{i}}}$}
+\newcommand{\SigHtwo}{$\Sigma_{\mathrm{H_2}}$}
+\newcommand{\SigGas}{$\Sigma_{\mathrm{gas}}$}
+\newcommand{\SigSFR}{$\Sigma_{\mathrm{SFR}}$}
+\newcommand{\SigStar}{$\Sigma_{*}$}
+\newcommand{\tdep}{$\tau_{\rm dep}$}
+
+\usepackage{rotating}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%IF Statements
+
+% Final Flag: Chapter Inclusion/Exclusion
+\iffinal
+\hyperfalse
+\imagetrue
+\linenumfalse
+\setcounter{tocdepth}{1}
+\fi
+
+% show images or leave them out?
+\ifimage
+\else
+\usepackage{comment}
+\excludecomment{figure}
+\let\endfigure\relax
+%\excludecomment{figure*}
+%\let\endfigure\*\relax % not working
+\fi
+
+% include hyperrefs?
+\ifhyper
+\usepackage{hyperref}
+\else
+\newcommand{\url}[1]{\texttt{#1}}
+\fi
+
+% include source line numbers in the margin? this requires some extra packages.
+\iflinenum
+\usepackage[excludeor]{everyhook}
+\usepackage{marginnote}
+\PushPostHook{par}{
+  \ifnotmarginhook
+  \notmarginhookfalse
+  %\marginnote{\small\ttfamily\the\inputlineno}
+  \notmarginhooktrue
+  \fi
+}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THE DOCUMENT
+
+\begin{document}
+%\pagenumbering{gobble}
+%\clearpage
+
+\prelimpages
+ 
+\Title{Contribution of Low Mass Galaxies to Reionization}
+\Author{Lauren Anderson}
+\Year{2016}
+\Program{Astronomy}
+
+\Chair{Thomas Quinn}{Professor}{Astronomy}
+\Signature{Anil C. Seth}
+\Signature{Thomas R. Quinn}
+
+\copyrightpage
+
+\titlepage  
+
+%%% abstract
+\include{moretex/abstract}
+
+%%% tables of contents
+\frontmatter
+\tableofcontents
+\listoffigures
+\listoftables
+
+%%% acknowledgments
+\include{moretex/acknowledgments}
+
+%%% dedication
+\include{moretex/dedication}
+
+
+% THE BODY OF THESIS
+\textpages
+\mainmatter
+\iffinal
+\include{chapters/01_introduction/introduction}
+\include{chapters/02_HzUVLF/uvlf}
+\include{chapters/03_fesc/fesc}
+\include{chapters/04_shapeLF/shapeLF}
+\include{chapters/05_conclusion/conclusion}
+\else
+  % comment out what you don't want
+\fi
+
+%\ifhyper
+%\bibliographystyle{apj_hyper} 
+%\else
+%\nocite{*}   % include everything in the ref.bib file
+%\bibliographystyle{plain}
+\bibliographystyle{apj} 
+%\fi
+\bibliography{/Users/lmanders/Desktop/paper/clusterlit}
+
+%%% appendices
+%\appendix
+%\include{chapters/appendix/appxa}
+    
+%%% vita
+\include{moretex/vita}
+
+\end{document}
